@@ -12,12 +12,11 @@ metadata:
     appgw.ingress.kubernetes.io/appgw-trusted-root-certificate: "backend-tls"
 spec:
   tls:
-    - secretName: star-tachyhealth-com
+    - secretName: backend-tls
       hosts:
-        - eptest.tachyhealth.com
-        - api-eptest.tachyhealth.com
+        - [write_your_url].com
   rules:
-    - host: api-eptest.tachyhealth.com
+    - host: [write_your_url].com
       http:
         paths:
           - path: /(.*)
@@ -34,7 +33,7 @@ spec:
                 name: apigateway
                 port:
                   number: 9443
-    - host: eptest.tachyhealth.com
+    - host: [write_your_url].com
       http:
         paths:
           - path: /(.*)
