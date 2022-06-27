@@ -1,0 +1,53 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  labels:
+   env: angular-test
+  name: angular-ingress
+  annotations:
+    kubernetes.io/ingress.class: azure/application-gateway
+    appgw.ingress.kubernetes.io/ssl-redirect: "true"
+    appgw.ingress.kubernetes.io/backend-protocol: "https"
+    appgw.ingress.kubernetes.io/backend-hostname: "backend"
+    appgw.ingress.kubernetes.io/appgw-trusted-root-certificate: "backend-tls"
+spec:
+  tls:
+    - secretName: star-tachyhealth-com
+      hosts:
+        - eptest.tachyhealth.com
+        - api-eptest.tachyhealth.com
+  rules:
+    - host: api-eptest.tachyhealth.com
+      http:
+        paths:
+          - path: /(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: apigateway
+                port:
+                  number: 9443
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: apigateway
+                port:
+                  number: 9443
+    - host: eptest.tachyhealth.com
+      http:
+        paths:
+          - path: /(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: angular
+                port:
+                  number: 9443
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: angular
+                port:
+                  number: 9443

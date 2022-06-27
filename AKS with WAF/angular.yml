@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Service
+metadata:
+    labels:
+     env: angular-test
+    name: angular
+spec:
+    ports:
+    - protocol: TCP
+      port: 9443 
+      targetPort: 9443
+    selector:
+        app: angular
+---
+apiVersion : apps/v1
+kind: Deployment   
+metadata:
+  labels:
+   env: angular-test
+  name: angular 
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: angular
+  template:
+    metadata:
+      labels: 
+        app: angular 
+    spec:
+      containers:
+        - name: angular 
+          imagePullPolicy: Always
+          image: tachyhealth.azurecr.io/secure/angular:3014
+          ports:
+           - containerPort: 9443
+          volumeMounts:
+          - mountPath: /etc/nginx/ssl
+            name: secret-volume
+          - mountPath: /etc/nginx/conf.d
+            name: configmap-volume
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: backend-tls
+      - name: configmap-volume
+        configMap:
+          name: angular-nginx-cm
