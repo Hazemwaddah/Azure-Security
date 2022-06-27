@@ -31,7 +31,7 @@ spec:
       containers:
         - name: angular 
           imagePullPolicy: Always
-          image: tachyhealth.azurecr.io/secure/angular:3014
+          image: [Type_your_repo].azurecr.io/secure/angular:latest
           ports:
            - containerPort: 9443
           volumeMounts:
