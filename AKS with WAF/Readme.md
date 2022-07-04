@@ -18,10 +18,7 @@ Today I've finished implementing one of the most complex topics in securing Azur
 	- It's important to add the correct annotations, in this case "Kubernetes.io/ingress.class: azure/application-gateway" as shown in the figure above, otherwise it'll NOT work correctly.
 	- Important notes to consider creating YAML file:-
 	i. Deploy the default type of services [ClusterIP] which will be more secure by not having public IP address like [Load-Balancer] type which is exposed to the Internet.
-	
-	
-	
-	
+
 	ii. Access to the services will be given through creating an Ingress, which in this case will be the IP address of the WAF. That way all traffic will go through WAF, be tested, and judged whether to be forwarded or to be dropped. And that's the goal of the whole process.
 	
 	
