@@ -33,6 +33,6 @@ Today I've finished implementing one of the most complex topics in securing Azur
 **6- After a small bit of time, the configuration of the WAF will be automatically created and controlled by AGIC, and hence, every change manually done will be overwritten by AGIC.**
 	
 	
-	7- As shown in the figure before, the backend health is healthy, and it returns back code 200 which is ok. It is also important to bring to attention, the IP address of the backend server [AKS] is private, which means traffic between WAF & AKS is going through Microsoft backbone network without being exposed to the Internet. And that's the best practice for securing Kubernetes clusters in Azure.
+**7- As shown in the figure before, the backend health is healthy, and it returns back code 200 which is ok. It is also important to bring to attention, the IP address of the backend server [AKS] is private, which means traffic between WAF & AKS is going through Microsoft backbone network without being exposed to the Internet. And that's the best practice for securing Kubernetes clusters in Azure.
 
 
