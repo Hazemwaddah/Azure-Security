@@ -28,5 +28,5 @@ Today I've finished implementing one of the most complex topics in securing Azur
 	
 	
 	7- As shown in the figure before, the backend health is healthy, and it returns back code 200 which is ok. It is also important to bring to attention, the IP address of the backend server [AKS] is private, which means traffic between WAF & AKS is going through Microsoft backbone network without being exposed to the Internet. And that's the best practice for securing Kubernetes clusters in Azure.
-![image](https://user-images.githubusercontent.com/47379135/177164747-9c4cd873-b7f7-4e72-b393-f8568d79ddd0.png)
+
 
