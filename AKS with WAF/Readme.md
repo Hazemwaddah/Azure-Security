@@ -10,8 +10,11 @@ This article shows you how to secure your Azure Kubernetes cluster [AKS] by impl
 	
 **2- Enable the AGIC [Application Gateway Ingress Controller] add-on in the Kubernetes cluster. This tells the AKS to control the WAF.**
 	
-	- If the application gateway is in the same virtual network as the Kubernetes cluster, then complete to the next step.
-	- If the application gateway is NOT in the same virtual network, then peering between the two virtual networks must be created before enabling step two, or else the application gateway will NOT appear to the Kubernetes cluster.
+	appgwId=$(az network application-gateway show -n waf-aks -g rg-privateendpoint-uae -o tsv --query "id") 
+	az aks enable-addons -n aks-privateendpoint-tst-uae -g rg-privateendpoint-uae -a ingress-appgw --appgw-id $appgwId
+
+- If the application gateway is in the same virtual network as the Kubernetes cluster, then complete to the next step.
+- If the application gateway is NOT in the same virtual network, then peering between the two virtual networks must be created before enabling step two, or else the application gateway will NOT appear to the Kubernetes cluster.
 
 
 **3- When we enable the AGIC, any configuration existed before in the application gateway will be lost, and the only source for configuration will be automatically configured in the application gateway and it will be unchangeable by manual users.**
