@@ -2,7 +2,7 @@
 
 **Steps**
 
-Today I've finished implementing one of the most complex topics in securing Azure Kubernetes Service. And I'm going to explain how I have done it, in this article, for the hope it benefits someone.
+This article shows you how to secure your Azure Kubernetes cluster [AKS] by implementing a WAF to manage traffic to AKS. This is an excellent practice to implement.
 
 **1- Create an application gateway with a Tier of WAF_V2 Not Standard_V2**
 	
