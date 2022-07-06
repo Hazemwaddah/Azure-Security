@@ -23,10 +23,15 @@ Note:-
 
 
 
-**3- When we enable the AGIC, any configuration existed before in the application gateway will be lost, and the only source for configuration will be automatically configured in the application gateway and it will be unchangeable by manual users.**
-	
+**Note:-**
 
-**4- Create a YAML file for the application such as Angular, backend apps, … etc.**
+When we enable the AGIC, any configuration existed before in the application gateway such as [Routing roles, Listeners, backend pools] will be lost, and the only source for configuration will be automatically configured in the application gateway and it cannot be changed manually by the user.
+
+
+
+**4- Build a YAML file for the application:-**
+
+In here, I'll build an Angular application to deploy on Kubernetes cluster
 
 It's important to add the correct annotations, in this case **"Kubernetes.io/ingress.class: azure/application-gateway"** as shown in the figure above, otherwise it'll NOT work correctly.
 
