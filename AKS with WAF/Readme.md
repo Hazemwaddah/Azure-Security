@@ -3,11 +3,14 @@
 
 This article shows you how to secure your Azure Kubernetes cluster [AKS] by implementing a WAF to manage traffic to AKS. This is an excellent practice to implement.
 
+
 **1- Create an application gateway with a Tier of WAF_V2 Not Standard_V2**
 
 If you want to know how to create WAF Tier WAF_V2 through Azure CLI, you can go to this link.
 	
-	
+
+
+
 **2- Enable the AGIC [Application Gateway Ingress Controller] add-on in the Kubernetes cluster. This tells the AKS to control the WAF.**
 	
 	appgwId=$(az network application-gateway show -n waf-aks -g rg-privateendpoint-uae -o tsv --query "id") 
@@ -18,15 +21,17 @@ Note:-
 - If the application gateway is NOT in the same virtual network, then peering between the two virtual networks must be created before enabling step two, or else the application gateway will NOT appear to the Kubernetes cluster.
 
 
+
+
 **3- When we enable the AGIC, any configuration existed before in the application gateway will be lost, and the only source for configuration will be automatically configured in the application gateway and it will be unchangeable by manual users.**
 	
 
 **4- Create a YAML file for the application such as Angular, backend apps, … etc.**
-	
-	
-	
-	- It's important to add the correct annotations, in this case "Kubernetes.io/ingress.class: azure/application-gateway" as shown in the figure above, otherwise it'll NOT work correctly.
-	- Important notes to consider creating YAML file:-
+
+It's important to add the correct annotations, in this case **"Kubernetes.io/ingress.class: azure/application-gateway"** as shown in the figure above, otherwise it'll NOT work correctly.
+
+
+Important notes to consider creating YAML file:-
 	i. Deploy the default type of services [ClusterIP] which will be more secure by not having public IP address like [Load-Balancer] type which is exposed to the Internet.
 
 	ii. Access to the services will be given through creating an Ingress, which in this case will be the IP address of the WAF. That way all traffic will go through WAF, be tested, and judged whether to be forwarded or to be dropped. And that's the goal of the whole process.
