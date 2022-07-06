@@ -13,6 +13,7 @@ This article shows you how to secure your Azure Kubernetes cluster [AKS] by impl
 	appgwId=$(az network application-gateway show -n waf-aks -g rg-privateendpoint-uae -o tsv --query "id") 
 	az aks enable-addons -n aks-privateendpoint-tst-uae -g rg-privateendpoint-uae -a ingress-appgw --appgw-id $appgwId
 
+Note:-
 - If the application gateway is in the same virtual network as the Kubernetes cluster, then complete to the next step.
 - If the application gateway is NOT in the same virtual network, then peering between the two virtual networks must be created before enabling step two, or else the application gateway will NOT appear to the Kubernetes cluster.
 
