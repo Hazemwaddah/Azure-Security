@@ -17,30 +17,38 @@ If you want to know how to create WAF Tier WAF_V2 through Azure CLI, you can go 
 	az aks enable-addons -n aks-privateendpoint-tst-uae -g rg-privateendpoint-uae -a ingress-appgw --appgw-id $appgwId
 
 Note:-
-- If the application gateway is in the same virtual network as the Kubernetes cluster, then complete to the next step.
-- If the application gateway is NOT in the same virtual network, then peering between the two virtual networks must be created before enabling step two, or else the application gateway will NOT appear to the Kubernetes cluster.
+- If the application gateway is NOT in the same virtual network, then peering between the two virtual networks must be created before enabling step two, or else the application gateway will NOT appear to the AGIC.
 
 
 
 
 **Note:-**
 
-When we enable the AGIC, any configuration existed before in the application gateway such as [Routing roles, Listeners, backend pools] will be lost, and the only source for configuration will be automatically configured in the application gateway and it cannot be changed manually by the user.
+When we enable the AGIC, any configuration existed before in the application gateway such as [Routing rules, Listeners, backend pools] will be lost, and the only source for the WAF configuration will be automatically configured in the application gateway and it cannot be changed manually by the user.
 
 
 
 **4- Build a YAML file for the application:-**
 
-In here, I'll build an Angular application to deploy on Kubernetes cluster
+In here, I'll build a simple Angular application to deploy on Kubernetes cluster.
 
-It's important to add the correct annotations, in this case **"Kubernetes.io/ingress.class: azure/application-gateway"** as shown in the figure above, otherwise it'll NOT work correctly.
+
 
 
 Important notes to consider creating YAML file:-
-	i. Deploy the default type of services [ClusterIP] which will be more secure by not having public IP address like [Load-Balancer] type which is exposed to the Internet.
 
-	ii. Access to the services will be given through creating an Ingress, which in this case will be the IP address of the WAF. That way all traffic will go through WAF, be tested, and judged whether to be forwarded or to be dropped. And that's the goal of the whole process.
-	
+**i.** Deploy the type of services [ClusterIP] instead of [Load-Balancer] for two reasons:-
+
+ - First, it'll be more secure because this type of service does not have public IP address exposed to the Internet.
+ - Secondly, Cost of ClusterIP is cheaper than Load-balancer since no reserved IP address is required.
+
+**ii.** Access to the services will be given through creating an Ingress, which in this case will be the IP address of the WAF. That way all traffic will go through WAF, be tested, and judged whether to be forwarded or to be dropped. And that's the goal of the whole process.
+
+**iii.** It's important to add the correct annotations in the YAML file, in this case **"Kubernetes.io/ingress.class: azure/application-gateway"** as shown in the following picture, otherwise it'll NOT work correctly.
+
+
+
+
 **5- Deploy the YAML files [Deployment, Service, Ingress, ConfigMap, Secrets, … etc] created in the previous step to the Kubernetes cluster using Kubectl apply.**
 
 
