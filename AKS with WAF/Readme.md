@@ -16,6 +16,7 @@ If you want to know how to create WAF Tier WAF_V2 through Azure CLI, you can go 
 	appgwId=$(az network application-gateway show -n waf-aks -g rg-privateendpoint-uae -o tsv --query "id") 
 	az aks enable-addons -n aks-privateendpoint-tst-uae -g rg-privateendpoint-uae -a ingress-appgw --appgw-id $appgwId
 
+or go to **Networking** under Kubernetes cluster and check enable Application Gateway Ingress Controller as in the picture below:
 
 ![This is an image](https://github.com/Hazemwaddah/Azure_Security/blob/main/AKS%20with%20WAF/AGIC.png)
 
