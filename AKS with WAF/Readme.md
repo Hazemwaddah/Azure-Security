@@ -27,7 +27,7 @@ Note:-
 
 
 
-**Note:-**
+Note:-
 
 When we enable the AGIC, any configuration existed before in the application gateway such as [Routing rules, Listeners, backend pools] will be lost, and the only source for the WAF configuration will be automatically configured in the application gateway and it cannot be changed manually by the user.
 
@@ -54,8 +54,18 @@ Important notes to consider creating YAML file:-
 ![This is an image](https://github.com/Hazemwaddah/Azure_Security/blob/main/AKS%20with%20WAF/Angular_ingress.png)
 
 
-**5- Deploy the YAML files [Deployment, Service, Ingress, ConfigMap, Secrets, … etc] created in the previous step to the Kubernetes cluster using Kubectl apply.**
+**5- Deploy the YAML files using Kubectl apply:-**
 
+For this example, there are three files that need deployment:
+
+i. First file is for creating configmap that contains the configuration of Nginx .conf file [configure HTTPS, TLS version, .crt, .key files].
+ii. Second file contains the deployment and service configuration file.
+iii. Finally, the third file contains the deployment of the ingress for external IP.
+
+All these files can be deployed in one line command by adding -f before each file: -
+
+	kubectl apply -f nginx-conf.yml -f angular.yml -f angular_ingress.yml
+	
 
 **6- After a small bit of time, the configuration of the WAF will be automatically created and controlled by AGIC, and hence, every change manually done will be overwritten by AGIC.**
 	
