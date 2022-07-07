@@ -29,11 +29,7 @@ or go to **Networking** under Kubernetes cluster and check enable Application Ga
 - If the application gateway is NOT in the same virtual network, then peering between the two virtual networks must be created before enabling step two, or else the application gateway will NOT appear to the AGIC.
 
 
-
-
-Note:-
-
-When we enable the AGIC, any configuration existed before in the application gateway such as [Routing rules, Listeners, backend pools] will be lost, and the only source for the WAF configuration will be automatically configured in the application gateway and it cannot be changed manually by the user.
+- When we enable the AGIC, any configuration existed before in the application gateway such as [Routing rules, Listeners, backend pools] will be lost, and the only source for the WAF configuration will be automatically configured in the application gateway and it cannot be changed manually by the user.
 
 
 
