@@ -81,4 +81,3 @@ As shown in the figure below, the backend health is healthy, and it returns back
 
 #### **Final Notes.**
 - monitoring the backend health after configuration is complete will show us the backend pools change the IP address, automatically. Since pods crash in Kubernetes clusters all the time, and new pods created with new IP addresses, the AGIC will reflect that in the WAF, without user intervention.
-- 
