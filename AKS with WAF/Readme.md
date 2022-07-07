@@ -59,7 +59,9 @@ Important notes to consider creating YAML file:-
 For this example, there are three files that need deployment:
 
 i. First file is for creating configmap that contains the configuration of Nginx .conf file [configure HTTPS, TLS version, .crt, .key files].
+
 ii. Second file contains the deployment and service configuration file.
+
 iii. Finally, the third file contains the deployment of the ingress for external IP.
 
 All these files can be deployed in one line command by adding -f before each file: -
