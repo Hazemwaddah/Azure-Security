@@ -4,7 +4,7 @@
 This article shows you how to secure your Azure Kubernetes cluster [AKS] by implementing a WAF to manage traffic to AKS. This is an excellent practice to implement.
 
 
-**1- Create an application gateway with a Tier of WAF_V2 Not Standard_V2**
+###**1- Create an application gateway with a Tier of WAF_V2 Not Standard_V2**
 
 If you want to know how to create WAF Tier WAF_V2 through Azure CLI, you can go to this link.
 	
