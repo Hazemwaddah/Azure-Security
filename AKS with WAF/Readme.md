@@ -76,3 +76,9 @@ After a small bit of time, the configuration of the WAF will be automatically cr
 As shown in the figure below, the backend health is healthy, and it returns back code 200 which is ok. It is also important to bring to attention, the IP address of the backend server [AKS] is private, which means traffic between WAF & AKS is going through Microsoft backbone network without being exposed to the Internet. And that's the best practice for securing Kubernetes clusters in Azure.
 
 ![This is an image](https://github.com/Hazemwaddah/Azure_Security/blob/main/AKS%20with%20WAF/WAF_backend_health.png)
+
+
+
+#### **Final Notes.**
+- monitoring the backend health after configuration is complete will show us the backend pools change the IP address, automatically. Since pods crash in Kubernetes clusters all the time, and new pods created with new IP addresses, the AGIC will reflect that in the WAF, without user intervention.
+- 
