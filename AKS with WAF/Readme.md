@@ -51,7 +51,7 @@ Important notes to consider creating YAML file:-
 
 **iii.** It's important to add the correct annotations in the YAML file, in this case **"Kubernetes.io/ingress.class: azure/application-gateway"** as shown in the following picture, otherwise it'll NOT work correctly.
 
-![This is an image](https://github.com/Hazemwaddah/Azure_Security/blob/main/AKS%20with%20WAF/AKS_Services.png)
+![This is an image](https://github.com/Hazemwaddah/Azure_Security/blob/main/AKS%20with%20WAF/Angular_ingress.png)
 
 
 **5- Deploy the YAML files [Deployment, Service, Ingress, ConfigMap, Secrets, … etc] created in the previous step to the Kubernetes cluster using Kubectl apply.**
