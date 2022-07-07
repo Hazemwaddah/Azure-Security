@@ -8,9 +8,9 @@ This article shows you how to secure your Azure Kubernetes cluster [AKS] by impl
 
 The WAF type should be of tier WAF_V2 not Standard_V2 because this is how we get to create the WAF policy to filter legitimate traffic from malicious one.
 
-If you want to know how to create WAF Tier WAF_V2 through Azure CLI, you can go to this link.
+If you want to know how to create WAF Tier WAF_V2 through Azure CLI, you can go to this [link](https://github.com/Hazemwaddah/Azure_Resources/blob/main/WAF/Readme.md).
 	
-This site was built using [GitHub Pages](https://github.com/Hazemwaddah/Azure_Resources/blob/main/WAF/Readme.md)
+
 
 ### **Enable the AGIC.**
 
