@@ -1,10 +1,10 @@
-# Securing Kubernetes cluster with WAF
+# Securing Kubernetes cluster with WAF.
 
 
 This article shows you how to secure your Azure Kubernetes cluster [AKS] by implementing a WAF to manage traffic to AKS. This is an excellent practice to implement.
 
 
-### **Create an application gateway:-**
+### **Create an application gateway.**
 
 The WAF type should be of tier WAF_V2 not Standard_V2 because this is how we get to create the WAF policy to filter legitimate traffic from malicious one.
 
@@ -13,7 +13,7 @@ If you want to know how to create WAF Tier WAF_V2 through Azure CLI, you can go 
 
 
 
-### **Enable the AGIC:-**
+### **Enable the AGIC.**
 
 Enabling AGIC [Application Gateway Ingress Controller] add-on in the Kubernetes cluster tells the AKS to, automatically, control the WAF, create routing rules, listeners for each service, and get the IP address of pods after new pods are created. You can enable AGIC by typing this command in PS terminal:
 	
@@ -37,7 +37,7 @@ When we enable the AGIC, any configuration existed before in the application gat
 
 
 
-### **Build a YAML file for the application:-**
+### **Build a YAML file for the application.**
 
 In here, I'll build a simple Angular application to deploy on Kubernetes cluster.
 
@@ -58,7 +58,7 @@ Important notes to consider creating YAML file:-
 ![This is an image](https://github.com/Hazemwaddah/Azure_Security/blob/main/AKS%20with%20WAF/Angular_ingress.png)
 
 
-### **Deploy the YAML files using Kubectl apply:-**
+### **Deploy the YAML files using Kubectl apply.**
 
 For this example, there are three files that need deployment:
 
@@ -73,7 +73,7 @@ All these files can be deployed in one line command by adding -f before each fil
 	kubectl apply -f nginx-conf.yml -f angular.yml -f angular_ingress.yml
 	
 
-### **Operation:-** 
+### **It works.** 
 
 After a small bit of time, the configuration of the WAF will be automatically created and controlled by AGIC, and hence, every change manually done will be overwritten by AGIC
 	
