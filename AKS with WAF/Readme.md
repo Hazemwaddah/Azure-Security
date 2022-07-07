@@ -21,7 +21,7 @@ or go to **Networking** under Kubernetes cluster and check enable Application Ga
 ![This is an image](https://github.com/Hazemwaddah/Azure_Security/blob/main/AKS%20with%20WAF/AGIC.png)
 
 
-Note:-
+#### Note:-
 - If the application gateway is NOT in the same virtual network, then peering between the two virtual networks must be created before enabling step two, or else the application gateway will NOT appear to the AGIC.
 
 
