@@ -75,10 +75,19 @@ After inserting the root certificate in the virtual gateway, we need to download
 ![This is an image](https://github.com/Hazemwaddah/Azure_Security/blob/main/VPN/VPN-connect.PNG)
 
 
+In the image below, you can find the VPN setting after the installtion of the VPN client file:
+
+
+![This is an image](https://github.com/Hazemwaddah/Azure_Security/blob/main/VPN/VPN-settings.PNG)
+
+
 #### iv. Install a leaf certificate
 
 A plethora of certificates can be generated from one root certificate that so each client can have a certificate. To have a certificate for each client is best practice because each client certificate's can be revoked for any reason like staff leaving, access revocation without the need to regenerate and re-install a new certificate for each employee leaving the organization.
 
 
+The image below shows how you are connected to the virtual gateway. Finally, your connection to the virtual network and the resources inside is encrypted and is immune to man-in-the-middle attack, congratulations.
 
-![This is an image](https://github.com/Hazemwaddah/Azure_Security/blob/main/VPN/VPN%20gateway.PNG)
+![This is an image](https://github.com/Hazemwaddah/Azure_Security/blob/main/VPN/VPN-connected.PNG)
+
+
