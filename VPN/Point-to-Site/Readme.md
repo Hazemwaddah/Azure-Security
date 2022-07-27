@@ -21,7 +21,7 @@ VPN has different protocols to be built upon. It also can be built on different 
 
 # In-details
 
-i. create a virtual gateway
+#### i. create a virtual gateway
 
 A Virtual gateway is a service in Azure that is connected to a certain virtual network. Each virtual network can have only one virtual gateway which in the logical explanation acts as a router. This virtual gateway is the service responsible for encryption and decryption of the data. To create a VPN to connect to an existing virtual network we need first to add a gateway subnet, which this virtual gateway will take an IP address of that range.
 We can add a gateway subnet to the network using Azure cli:
@@ -44,9 +44,23 @@ We'll need to allocate a public IP address to the virtual gateway. We can do tha
  
  Note: We can either allocate that public IP address statically or dynamically. The dynamic choice will cost less than statically.
  
+      az network vnet-gateway create \
+      -n vgw-vpn \
+      -l eastus \
+      -g TestRG1 \
+      --public-ip-address rg-vpn-pip \
+      --vnet VNet1 \
+      --gateway-type Vpn \
+      --sku basic \
+      --vpn-type RouteBased \
+      --no-wait
  
- 
+ Note: Now the virtual gateway is created for the virtual network (VNet1). This means that all the resources that exist in that virtual network will be accessible to VPN clients, after the gateway is configured.
   
+
+#### ii. insert a root certificate
+
+This article assumes you have generated a self-signed cerficate that will be used as the root cerfiicate in the virtual gateway. This cerificate can be created using PowerShell in Windows or using OpenSSL in Linux. The root cerfiicate will be inserted in the configuration of the virtual gateway and clients will have a leaf certificate generated from this root certificate. 
 
 
 
