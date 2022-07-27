@@ -10,10 +10,13 @@ VPN has different protocols to be built upon. It also can be built on different 
 
 # VPN Steps:
 
-i. create a virtual gateway 
-ii. insert the root certificate
-iii. download the client application
-iv. install a leaf certificate
+### i. create a virtual gateway 
+
+### ii. insert the root certificate
+
+### iii. download the client application
+
+### iv. install a leaf certificate
 
 
 
