@@ -23,7 +23,19 @@ VPN has different protocols to be built upon. It also can be built on different 
 
 i. create a virtual gateway
 
-Virtual gateway is a service in Azure that is connected to a certain virtual network. Each virtual network can have only one virtual gateway which in the logical explanation works as a router. This virtual gateway is the party with which the VPN client will access.
+A Virtual gateway is a service in Azure that is connected to a certain virtual network. Each virtual network can have only one virtual gateway which in the logical explanation acts as a router. This virtual gateway is the service responsible for encryption and decryption of the data.
+We can create a virtual gateway using Azure cli by writing the code below:
+
+      az network vnet create \
+      -n VNet1 \
+      -g TestRG1 \
+      -l eastus \
+      --address-prefix 10.1.0.0/16 \
+      --subnet-name Frontend \
+      --subnet-prefix 10.1.0.0/24
+  
+
+
 
 
 
