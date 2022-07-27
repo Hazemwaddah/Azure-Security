@@ -6,7 +6,16 @@ For an attacker from the outside, the data will look Gubberish, nothing logical.
 
 
 # Azure VPN
-VPN has different protocols to be built upon. It also can be built on different layers of the OSI model. For example, IPSec works in layer 4 of the OSI model (Transport), whereas L2TP works in layer 2 (Data link) and OpenVPN works in layer 3 (Network).
+VPN has different protocols to be built upon. It also can be built on different layers of the OSI model. For example, IPSec works in layer 4 of the OSI model (Transport), whereas L2TP works in layer 2 (Data link) and OpenVPN works in layer 3 (Network). The steps needed to create a VPN in Azure follows:
+
+# VPN Steps:
+
+i. create a virtual gateway 
+ii. insert the root certificate
+iii. download the client application
+iv. install a leaf certificate
+
+
 
 
 
