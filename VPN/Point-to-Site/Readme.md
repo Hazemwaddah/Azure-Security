@@ -19,6 +19,12 @@ VPN has different protocols to be built upon. It also can be built on different 
 ### iv. install a leaf certificate
 
 
+# In-details
+
+i. create a virtual gateway
+
+Virtual gateway is a service in Azure that is connected to a certain virtual network. Each virtual network can have only one virtual gateway which in the logical explanation works as a router. This virtual gateway is the party with which the VPN client will access.
+
 
 
 
