@@ -75,4 +75,9 @@ After inserting the root certificate in the virtual gateway, we need to download
 
 A plethora of certificates can be generated from one root certificate that so each client can have a certificate. To have a certificate for each client is best practice because each client certificate's can be revoked for any reason like staff leaving, access revocation without the need to regenerate and re-install a new certificate for each employee leaving the organization.
 
+![This is an image](https://github.com/Hazemwaddah/Azure_Security/blob/main/VPN/VPN%20gateway.PNG)
 
+
+
+
+![This is an image](https://github.com/Hazemwaddah/Azure_Security/blob/main/VPN/VPN%20gateway.PNG)
