@@ -63,5 +63,4 @@ We'll need to allocate a public IP address to the virtual gateway. We can do tha
 This article assumes you have generated a self-signed cerficate that will be used as the root cerfiicate in the virtual gateway. This cerificate can be created using PowerShell in Windows or using OpenSSL in Linux. The root cerfiicate will be inserted in the configuration of the virtual gateway and clients will have a leaf certificate generated from this root certificate. 
 
 
-
-
+![This is an image](https://github.com/Hazemwaddah/Azure_Security/blob/main/VPN/VPN%20gateway.PNG)
