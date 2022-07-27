@@ -32,7 +32,21 @@ We can add a gateway subnet to the network using Azure cli:
       -g TestRG1 \
       --address-prefix 10.1.255.0/27
   
+Note: without a gateway subnet, we'll not be able to create a virtual network.
+
+
+We'll need to allocate a public IP address to the virtual gateway. We can do that through the following code:
+
+      az network public-ip create \
+      -n rg-vpn-pip \
+      -g TestRG1  \
+      --allocation-method Dynamic
  
+ Note: We can either allocate that public IP address statically or dynamically. The dynamic choice will cost less than statically.
+ 
+ 
+ 
+  
 
 
 
